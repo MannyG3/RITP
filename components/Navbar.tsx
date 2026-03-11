@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { navGroups } from "@/constants/data";
+import { navTabs } from "@/constants/data";
 
 export function Navbar() {
   const [solid, setSolid] = useState(false);
-  const [activeGroup, setActiveGroup] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -18,66 +19,85 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const filteredGroups = useMemo(() => {
+  const filteredTabs = useMemo(() => {
     if (!search.trim()) {
-      return navGroups;
+      return navTabs;
     }
 
     const query = search.toLowerCase();
-    return navGroups
-      .map((group) => ({
-        ...group,
-        links: group.links.filter((item) => item.label.toLowerCase().includes(query))
+    return navTabs
+      .map((tab) => ({
+        ...tab,
+        children: (tab.children ?? []).filter((item) => item.label.toLowerCase().includes(query))
       }))
-      .filter((group) => group.label.toLowerCase().includes(query) || group.links.length > 0);
+      .filter((tab) => tab.label.toLowerCase().includes(query) || (tab.children ?? []).length > 0);
   }, [search]);
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        solid ? "border-slate/20 bg-navy" : "border-white/20 bg-transparent"
+        solid ? "border-slate/30 bg-navy/95" : "border-white/20 bg-navy/70"
       }`}
     >
-      <nav className="mx-auto max-w-grid px-4 md:px-8 h-20 flex items-center justify-between" aria-label="Global navigation">
-        <Link href="#" className="font-heading text-white text-xl tracking-tight font-semibold">
-          RIT Polytechnic Pune
+      <nav className="mx-auto max-w-grid px-4 md:px-8 h-20 flex items-center justify-between gap-4" aria-label="Global navigation">
+        <Link href="#" className="inline-flex items-center gap-3 font-heading text-white text-lg xl:text-xl tracking-tight font-semibold whitespace-nowrap">
+          <Image
+            src="/images/college-logo.png"
+            alt="RIT logo"
+            width={46}
+            height={18}
+            className="h-9 w-auto rounded-sm bg-white/95 p-1"
+            priority
+          />
+          <span>RIT Polytechnic Pune</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {navGroups.map((group) => (
-            <div
-              key={group.label}
-              className="relative"
-              onMouseEnter={() => setActiveGroup(group.label)}
-              onMouseLeave={() => setActiveGroup(null)}
-            >
-              <Link href={group.href} className="text-sm text-white/90 hover:text-gold transition-colors">
-                {group.label}
-              </Link>
+        <div className="hidden lg:flex flex-1 justify-end">
+          <div className="relative flex w-full max-w-5xl overflow-visible rounded-xl border border-white/20 bg-gradient-to-b from-[#0b2e58] to-[#001d3d] shadow-card">
+            {navTabs.map((tab) => (
+              <div
+                key={tab.label}
+                className="relative flex-1"
+                onMouseEnter={() => setActiveDropdown(tab.children ? tab.label : null)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link
+                  href={tab.href}
+                  className={`h-12 px-3 inline-flex w-full items-center justify-center text-center text-[15px] border-r border-white/10 transition-colors ${
+                    tab.active
+                      ? "bg-gradient-to-b from-[#d4af37] to-[#b9911a] text-navy font-semibold"
+                      : "text-white/90 hover:bg-[#173d69]"
+                  }`}
+                >
+                  {tab.label}
+                </Link>
 
-              <AnimatePresence>
-                {activeGroup === group.label ? (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    className="absolute left-0 top-8 w-80 rounded-sm border border-slate/20 bg-white p-5 shadow-card"
-                  >
-                    <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold">{group.label}</p>
-                    <ul className="mt-3 space-y-2">
-                      {group.links.map((item) => (
-                        <li key={item.label}>
-                          <Link href={item.href} className="text-sm text-slate hover:text-navy transition-colors">
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ) : null}
-              </AnimatePresence>
-            </div>
-          ))}
+                <AnimatePresence>
+                  {activeDropdown === tab.label && tab.children ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      className="absolute left-0 top-12 z-40 min-w-[260px] rounded-b-xl border border-white/20 bg-[#082848] py-2 shadow-xl"
+                    >
+                      <ul className="space-y-1 px-3 py-2">
+                        {tab.children.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              href={item.href}
+                              className="block rounded-md px-3 py-2 text-center text-[14px] tracking-wide text-white/90 hover:bg-[#123a66]"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
 
         <button
@@ -125,30 +145,32 @@ export function Navbar() {
                   type="text"
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
-                  placeholder="Search departments or admissions"
+                  placeholder="Search menu"
                   className="w-full h-11 rounded-sm border border-white/25 bg-transparent px-3 text-sm text-white placeholder:text-white/60 outline-none focus:border-gold"
                 />
               </label>
 
               <div className="mt-5 space-y-4 overflow-y-auto max-h-[calc(100vh-180px)] pr-1">
-                {filteredGroups.map((group) => (
-                  <section key={group.label} className="rounded-sm border border-white/20 p-4">
-                    <Link href={group.href} className="font-semibold text-gold" onClick={() => setDrawerOpen(false)}>
-                      {group.label}
+                {filteredTabs.map((tab) => (
+                  <section key={tab.label} className="rounded-sm border border-white/20 p-4">
+                    <Link href={tab.href} className="font-semibold text-gold" onClick={() => setDrawerOpen(false)}>
+                      {tab.label}
                     </Link>
-                    <ul className="mt-3 space-y-2">
-                      {group.links.map((item) => (
-                        <li key={item.label}>
-                          <Link
-                            href={item.href}
-                            className="text-sm text-white/90 hover:text-gold"
-                            onClick={() => setDrawerOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    {(tab.children ?? []).length > 0 ? (
+                      <ul className="mt-3 space-y-2">
+                        {(tab.children ?? []).map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              href={item.href}
+                              className="text-sm text-white/90 hover:text-gold"
+                              onClick={() => setDrawerOpen(false)}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </section>
                 ))}
               </div>

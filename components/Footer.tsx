@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const quickLinks = [
   { label: "About Us", href: "#about" },
@@ -18,7 +19,10 @@ export function Footer() {
 
       <div className="mx-auto max-w-grid px-4 md:px-8 py-14 grid gap-10 lg:grid-cols-4">
         <section>
-          <p className="font-heading text-2xl leading-tight text-navy">RIT POLYTECHNIC PUNE</p>
+          <div className="inline-flex items-center gap-3">
+            <Image src="/images/college-logo.png" alt="RIT logo" width={56} height={22} className="h-11 w-auto rounded-sm bg-white p-1" />
+            <p className="font-heading text-2xl leading-tight text-navy">RIT POLYTECHNIC PUNE</p>
+          </div>
           <p className="mt-1 text-sm font-semibold text-gold">AICTE and MSBTE Approved Institute</p>
 
           <p className="mt-7 text-2xl font-heading text-navy">Address</p>

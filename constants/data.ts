@@ -1,41 +1,27 @@
-export const navGroups = [
-  {
-    label: "Institute",
-    href: "#institute",
-    links: [
-      { label: "About RITP", href: "#about" },
-      { label: "Principal's Message", href: "#principal" },
-      { label: "Campus Infrastructure", href: "#infrastructure" }
-    ]
-  },
-  {
-    label: "Departments",
-    href: "#departments",
-    links: [
-      { label: "Civil Engineering", href: "#civil" },
-      { label: "Mechanical Engineering", href: "#mechanical" },
-      { label: "Computer Engineering", href: "#computer" },
-      { label: "AIML", href: "#aiml" }
-    ]
-  },
-  {
-    label: "Admissions 2025",
-    href: "#admissions",
-    links: [
-      { label: "Eligibility", href: "#eligibility" },
-      { label: "Fee Structure", href: "#fees" },
-      { label: "Scholarships", href: "#scholarships" }
-    ]
-  },
-  {
-    label: "Placement Excellence",
-    href: "#placement",
-    links: [
-      { label: "TPO Cell", href: "#tpo" },
-      { label: "Recruiters", href: "#recruiters" },
-      { label: "Top Placements", href: "#wall-of-fame" }
-    ]
-  }
+export const aboutMenu = [
+  { label: "About us", href: "#about" },
+  { label: "About KES", href: "#about-kes" },
+  { label: "VISION & MISSION", href: "#vision" },
+  { label: "Principal's Message", href: "#principal" },
+  { label: "Secretary's Message", href: "#secretary" },
+  { label: "BOG members", href: "#bog" },
+  { label: "Board of Governance", href: "#governance" },
+  { label: "Institute Awards", href: "#awards" },
+  { label: "Media Broadcasting", href: "#media" },
+  { label: "Location", href: "#location" }
+];
+
+export const navTabs = [
+  { label: "Home", href: "#", active: true },
+  { label: "Departments", href: "#departments" },
+  { label: "RITP Unique", href: "#ritp-unique", children: aboutMenu },
+  { label: "Admission", href: "#admissions" },
+  { label: "Academics", href: "#academics" },
+  { label: "Facilities", href: "#facilities" },
+  { label: "T & P CELL", href: "#placement" },
+  { label: "Student Activities", href: "#activities" },
+  { label: "Professional Body", href: "#professional-body" },
+  { label: "Alumni", href: "#alumni" }
 ];
 
 export const impactMetrics = [
