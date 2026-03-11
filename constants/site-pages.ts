@@ -193,15 +193,15 @@ export const placementStats = [
 ];
 
 export const recruiterWall = [
-  "Tata Motors",
-  "Hyundai",
-  "TCS",
-  "KPIT Technologies",
-  "Bharat Forge",
-  "Kirloskar Brothers",
-  "Persistent Systems",
-  "Capgemini",
-  "Accenture"
+  { name: "Tata Motors", logo: "/images/recruiters/tata-motors.svg" },
+  { name: "Hyundai", logo: "/images/recruiters/hyundai.svg" },
+  { name: "TCS", logo: "/images/recruiters/tcs.svg" },
+  { name: "KPIT Technologies", logo: "/images/recruiters/kpit.png" },
+  { name: "Bharat Forge", logo: "/images/recruiters/bharat-forge.jpg" },
+  { name: "Kirloskar Brothers", logo: "/images/recruiters/kirloskar-brothers.jpg" },
+  { name: "Persistent Systems", logo: "/images/recruiters/persistent.svg" },
+  { name: "Capgemini", logo: "/images/recruiters/capgemini.svg" },
+  { name: "Accenture", logo: "/images/recruiters/accenture.svg" }
 ];
 
 export const placementServices = [
@@ -268,6 +268,100 @@ export const admissionsInfo = {
   officePhone: "9822850858"
 };
 
+export type AdmissionTrackSlug = "first-year" | "direct-second-year";
+
+export type AdmissionTrack = {
+  slug: AdmissionTrackSlug;
+  title: string;
+  shortDescription: string;
+  overview: string[];
+  eligibility: string[];
+  process: string[];
+  documents: string[];
+  importantNotes: string[];
+  sourceLinks: Array<{ label: string; href: string }>;
+};
+
+export const admissionTracks: AdmissionTrack[] = [
+  {
+    slug: "first-year",
+    title: "First Year Diploma Admission",
+    shortDescription: "For students taking admission after SSC (10th) through Maharashtra CAP rounds.",
+    overview: [
+      "First Year Diploma admissions in Maharashtra are conducted through the Centralized Admission Process (CAP) announced each year by the competent authority.",
+      "Candidates fill online option forms, complete document verification, and receive allotment in CAP rounds based on merit, category rules, and seat availability."
+    ],
+    eligibility: [
+      "Passed SSC (10th Standard) or equivalent examination with at least 35% aggregate marks.",
+      "Eligibility, reservation norms, and seat-type conditions are applied as per the latest annual CAP information brochure.",
+      "For minority and institute-level seats, institute and authority guidelines are applicable as notified in the admission year."
+    ],
+    process: [
+      "Register online on the official admission portal notified for Maharashtra Polytechnic CAP.",
+      "Upload required documents and complete e-scrutiny or physical verification as instructed.",
+      "Publish/confirm merit details, submit option form, and lock branch-college preferences.",
+      "Accept allotted seat in CAP rounds and report to the institute within deadlines.",
+      "Complete final admission formalities, fee payment, and document submission at institute level."
+    ],
+    documents: [
+      "SSC Marksheet and Passing Certificate",
+      "School Leaving / Transfer Certificate",
+      "Nationality and Domicile certificate (as applicable)",
+      "Caste certificate, validity, and non-creamy layer documents (if applicable)",
+      "Income certificate (for EWS / TFWS or fee concession categories, if applicable)",
+      "Aadhaar card and passport-size photographs"
+    ],
+    importantNotes: [
+      "Merit list, CAP schedule, and seat matrix change every academic year.",
+      "Always verify the active year's brochure and deadlines on official portals before applying."
+    ],
+    sourceLinks: [
+      { label: "DTE Maharashtra", href: "https://dte.maharashtra.gov.in" },
+      { label: "MSBTE Official Website", href: "https://msbte.org.in" },
+      { label: "State CET Cell Maharashtra", href: "https://cetcell.mahacet.org" }
+    ]
+  },
+  {
+    slug: "direct-second-year",
+    title: "Direct Second Year Diploma Admission",
+    shortDescription: "For eligible students seeking lateral entry to diploma second year.",
+    overview: [
+      "Direct Second Year (lateral entry) admissions are also processed under Maharashtra admission rules notified for the academic year.",
+      "This route is intended for eligible candidates from qualifying backgrounds such as HSC Science, HSC vocational streams, or ITI, subject to current-year rules."
+    ],
+    eligibility: [
+      "Passed HSC (Science) with Physics and Mathematics (and relevant subjects as specified in yearly rules).",
+      "OR passed HSC (Vocational/MCVC) in an appropriate stream as per equivalence rules.",
+      "OR passed 2-year ITI after 10th in a relevant trade, where permitted by annual CAP guidelines.",
+      "Branch equivalence and seat eligibility are decided according to the official yearly admission handbook."
+    ],
+    process: [
+      "Register on the official admissions portal for the active academic year.",
+      "Complete document upload and verification for lateral-entry eligibility.",
+      "Confirm merit details and submit preference options for available branches/institutes.",
+      "Participate in allotment rounds and confirm allotted seat within reporting window.",
+      "Report to institute and complete admission with original documents and fees."
+    ],
+    documents: [
+      "Qualifying exam marksheets (HSC Science/MCVC/ITI as applicable)",
+      "SSC marksheet and school leaving certificate",
+      "ITI certificates and trade documents (for ITI applicants)",
+      "Nationality/domicile and category documents (if applicable)",
+      "Income and concession-related certificates (if applicable)",
+      "Identity proof and passport-size photographs"
+    ],
+    importantNotes: [
+      "Not all branches may have direct second-year intake every year.",
+      "Seat distribution, reservation, and eligible qualifications are finalized in the yearly official notification."
+    ],
+    sourceLinks: [
+      { label: "DTE Maharashtra", href: "https://dte.maharashtra.gov.in" },
+      { label: "MSBTE Official Website", href: "https://msbte.org.in" },
+      { label: "State CET Cell Maharashtra", href: "https://cetcell.mahacet.org" }
+    ]
+  }
+];
+
 export const aboutContent = {
   vision: "To develop skilled professionals through technical education.",
   mission: [
@@ -296,6 +390,16 @@ export type AboutSection = {
   title: string;
   summary: string;
   content: string[];
+  image?: {
+    src: string;
+    alt: string;
+  };
+  contact?: {
+    name: string;
+    designation: string;
+    phone: string;
+    email: string;
+  };
 };
 
 export const aboutSections: AboutSection[] = [
@@ -331,9 +435,25 @@ export const aboutSections: AboutSection[] = [
     title: "Principal's Message",
     summary: "Academic focus, practical learning, and student growth outlook.",
     content: [
-      "Our focus is to build confident engineers through conceptual clarity and consistent practical exposure.",
-      "We encourage students to participate in projects, technical events, and internship opportunities that shape their professional journey."
-    ]
+      "Words from Principal's Desk",
+      "Warm Greetings!",
+      "Education is a multi-stage process of building character. Engineering education is discipline-specific and outcome based, which involves the application of basic principles.",
+      "The inspiration and commitment of our management to continuous improvement and hard work of the faculty members towards the overall growth of our students ensures that every student passing out of our college will taste the success of life.",
+      "I wish all our students great success and expect them to be proud RITians. With vision and mission, we will continue to rise in the field of engineering. With the help of technology, we will make engineering a special key to pathways of great opportunity through RIT.",
+      "I believe that every student can learn and be successful if provided the right support and opportunities. Here at RIT, the professors and staff are committed to providing all students with an appropriate and challenging educational experience in a respectful environment.",
+      "I would like parents to know that my door is always open to discuss any concerns, questions, or ideas you may have regarding your child's education. I welcome you all to this outstanding learning community where everyone is dedicated to high standards of excellence.",
+      "I conclude by assuring that together we can make the learning experience memorable and fruitful at RIT Polytechnic, Lohegaon, Pune."
+    ],
+    image: {
+      src: "/images/about/principal-dr-kashinath-munde.jpg",
+      alt: "Dr. Kashinath Munde, Principal"
+    },
+    contact: {
+      name: "Dr. Kashinath Munde",
+      designation: "Principal",
+      phone: "9307128729",
+      email: "principal@ritppune.com"
+    }
   },
   {
     slug: "secretarys-message",

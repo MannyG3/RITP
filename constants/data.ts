@@ -20,6 +20,11 @@ const academicsMenu = [
   { label: "Civil Engineering", href: "/departments/civil" }
 ];
 
+const admissionsMenu = [
+  { label: "First Year Diploma", href: "/admissions/first-year" },
+  { label: "Direct Second Year", href: "/admissions/direct-second-year" }
+];
+
 const campusLifeMenu = campusLifePages.map((item) => ({
   label: item.title,
   href: `/campus-life/${item.slug}`
@@ -35,7 +40,7 @@ export const aboutMenu = aboutSections
 export const navTabs = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", children: aboutMenu },
-  { label: "Admissions", href: "/admissions" },
+  { label: "Admissions", href: "/admissions", children: admissionsMenu },
   { label: "Academics & Programmes", href: "/departments/computer", children: academicsMenu },
   { label: "Student Careers", href: "/placement-cell", children: studentCareerMenu },
   { label: "Campus life", href: "/campus-life", children: campusLifeMenu },

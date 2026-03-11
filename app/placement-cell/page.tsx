@@ -6,13 +6,6 @@ import { placementContact, placementServices, placementStats, recruiterWall } fr
 
 export const dynamic = "force-static";
 
-const recruiterStyles = [
-  "from-slate-100 to-slate-200",
-  "from-stone-100 to-slate-200",
-  "from-zinc-100 to-slate-200",
-  "from-slate-200 to-zinc-100"
-] as const;
-
 export default function PlacementCellPage() {
   return (
     <SharedLayout>
@@ -58,24 +51,15 @@ export default function PlacementCellPage() {
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
-          {recruiterWall.map((company, index) => (
+          {recruiterWall.map((company) => (
             <article
-              key={company}
-              className="group rounded-sm border border-slate/20 bg-white p-4 text-center grayscale transition-all duration-200 hover:grayscale-0 hover:-translate-y-1"
+              key={company.name}
+              className="group rounded-sm border border-slate/20 bg-white p-4 text-center transition-all duration-200 hover:-translate-y-1"
             >
-              <div
-                className={`mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b ${
-                  recruiterStyles[index % recruiterStyles.length]
-                } text-sm font-bold text-navy`}
-              >
-                {company
-                  .split(" ")
-                  .map((part) => part[0])
-                  .join("")
-                  .slice(0, 2)
-                  .toUpperCase()}
+              <div className="relative mx-auto h-14 w-28 overflow-hidden rounded-sm bg-slate-50 p-1">
+                <Image src={company.logo} alt={`${company.name} logo`} fill className="object-contain p-1" sizes="112px" unoptimized />
               </div>
-              <p className="mt-3 text-sm font-semibold text-slate group-hover:text-navy">{company}</p>
+              <p className="mt-3 text-sm font-semibold text-slate group-hover:text-navy">{company.name}</p>
             </article>
           ))}
         </div>
@@ -85,8 +69,8 @@ export default function PlacementCellPage() {
         <div className="grid items-stretch gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative min-h-[420px] overflow-hidden rounded-sm border border-slate/20 shadow-card">
             <Image
-              src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1400&q=80"
-              alt="Training and Placement Officer"
+              src="/images/tnp/mayurphoto.jpeg"
+              alt="TNP Faculty Mr. Mayur Gund"
               fill
               className="object-cover"
             />

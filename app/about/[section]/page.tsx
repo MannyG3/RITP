@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
@@ -35,11 +36,44 @@ export default async function AboutSectionPage({ params }: { params: Promise<{ s
       <section className="mx-auto max-w-grid px-4 md:px-8 py-10 md:py-14">
         <article className="rounded-sm border border-slate/20 bg-white p-6 md:p-8 shadow-card">
           <h2 className="font-heading text-3xl text-navy">Section Details</h2>
+          {item.image ? (
+            <div className="mt-5 mx-auto overflow-hidden rounded-sm border border-slate/20 bg-slate-50 p-2 max-w-sm">
+              <Image src={item.image.src} alt={item.image.alt} width={532} height={690} className="h-auto w-full object-cover" priority />
+            </div>
+          ) : null}
+
+          {item.contact && item.image ? (
+            <div className="mt-4 mx-auto max-w-sm rounded-sm border border-slate/20 bg-[#f8fbff] p-5 text-center">
+              <p className="font-heading text-2xl text-navy">{item.contact.name}</p>
+              <p className="mt-1 text-sm font-semibold text-gold">{item.contact.designation}</p>
+              <a href={`tel:${item.contact.phone}`} className="mt-3 block text-slate hover:text-navy">
+                {item.contact.phone}
+              </a>
+              <a href={`mailto:${item.contact.email}`} className="mt-1 block text-slate hover:text-navy">
+                {item.contact.email}
+              </a>
+            </div>
+          ) : null}
+
           <div className="mt-4 space-y-4 text-slate leading-7">
             {item.content.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+
+          {item.contact && !item.image ? (
+            <div className="mt-8 rounded-sm border border-slate/20 bg-[#f8fbff] p-5">
+              <p className="font-heading text-2xl text-navy">{item.contact.name}</p>
+              <p className="mt-1 text-sm font-semibold text-gold">{item.contact.designation}</p>
+              <a href={`tel:${item.contact.phone}`} className="mt-3 block text-slate hover:text-navy">
+                {item.contact.phone}
+              </a>
+              <a href={`mailto:${item.contact.email}`} className="mt-1 block text-slate hover:text-navy">
+                {item.contact.email}
+              </a>
+            </div>
+          ) : null}
+
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
               href="/about"

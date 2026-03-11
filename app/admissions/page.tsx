@@ -1,6 +1,7 @@
 import { AdmissionsInquiryForm } from "@/components/AdmissionsInquiryForm";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
+import Link from "next/link";
 import { admissionsInfo, admissionsSteps } from "@/constants/site-pages";
 
 export default function AdmissionsPage() {
@@ -39,6 +40,36 @@ export default function AdmissionsPage() {
       </section>
 
       <section className="mx-auto max-w-grid px-4 md:px-8 pb-16">
+        <div className="mb-6 grid gap-4 md:grid-cols-2">
+          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Admission Track</p>
+            <h2 className="mt-3 font-heading text-3xl text-navy">First Year Diploma</h2>
+            <p className="mt-3 text-slate leading-7">
+              Complete guidance for SSC-based CAP admission, eligibility, documents, and official process links.
+            </p>
+            <Link
+              href="/admissions/first-year"
+              className="mt-5 inline-flex h-11 items-center rounded-sm border border-gold px-5 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-navy"
+            >
+              Explore First Year
+            </Link>
+          </article>
+
+          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Admission Track</p>
+            <h2 className="mt-3 font-heading text-3xl text-navy">Direct Second Year</h2>
+            <p className="mt-3 text-slate leading-7">
+              Lateral-entry information for eligible HSC Science, MCVC, and ITI candidates with process details.
+            </p>
+            <Link
+              href="/admissions/direct-second-year"
+              className="mt-5 inline-flex h-11 items-center rounded-sm border border-gold px-5 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-navy"
+            >
+              Explore Direct Second Year
+            </Link>
+          </article>
+        </div>
+
         <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
           <h2 className="font-heading text-3xl text-navy">Admissions 2026 Snapshot</h2>
           <p className="mt-4 text-slate leading-7">
