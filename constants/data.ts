@@ -1,3 +1,5 @@
+import { aboutSections, campusLifePages } from "@/constants/site-pages";
+
 const departmentMenu = [
   { label: "Computer Engineering", href: "/departments/computer" },
   { label: "Mechanical Engineering", href: "/departments/mech" },
@@ -18,18 +20,17 @@ const academicsMenu = [
   { label: "Civil Engineering", href: "/departments/civil" }
 ];
 
-export const aboutMenu = [
-  { label: "About us", href: "/about#about" },
-  { label: "About KES", href: "/about#about-kes" },
-  { label: "VISION & MISSION", href: "/about#vision" },
-  { label: "Principal's Message", href: "/about#principal" },
-  { label: "Secretary's Message", href: "/about#secretary" },
-  { label: "BOG members", href: "/about#bog" },
-  { label: "Board of Governance", href: "/about#governance" },
-  { label: "Institute Awards", href: "/about#awards" },
-  { label: "Media Broadcasting", href: "/about#media" },
-  { label: "Location", href: "/about#location" }
-];
+const campusLifeMenu = campusLifePages.map((item) => ({
+  label: item.title,
+  href: `/campus-life/${item.slug}`
+}));
+
+export const aboutMenu = aboutSections
+  .filter((item) => item.slug !== "infrastructure-and-facilities")
+  .map((item) => ({
+    label: item.title,
+    href: `/about/${item.slug}`
+  }));
 
 export const navTabs = [
   { label: "Home", href: "/" },
@@ -37,7 +38,7 @@ export const navTabs = [
   { label: "Admissions", href: "/admissions" },
   { label: "Academics & Programmes", href: "/departments/computer", children: academicsMenu },
   { label: "Student Careers", href: "/placement-cell", children: studentCareerMenu },
-  { label: "Campus life", href: "/#activities" },
+  { label: "Campus life", href: "/campus-life", children: campusLifeMenu },
   { label: "Research & Consultancy", href: "/#professional-body" },
   { label: "Departments", href: "/departments/computer", children: departmentMenu }
 ];

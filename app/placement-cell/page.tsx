@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { PlacementTestimonials } from "@/components/PlacementTestimonials";
 import { SharedLayout } from "@/components/SharedLayout";
-import { placementStats, recruiterWall } from "@/constants/site-pages";
+import { placementContact, placementServices, placementStats, recruiterWall } from "@/constants/site-pages";
 
 export const dynamic = "force-static";
 
@@ -27,6 +27,11 @@ export default function PlacementCellPage() {
             The RITP placement ecosystem connects diploma education with professional outcomes through structured training,
             internship support, recruiter engagement, and role-specific interview readiness.
           </p>
+          <ul className="mt-6 grid gap-2 md:grid-cols-2 text-white/90 text-sm">
+            {placementServices.map((service) => (
+              <li key={service}>• {service}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -96,8 +101,11 @@ export default function PlacementCellPage() {
               We work closely with departments and employers to align student capability with market demand. From internships to final placements, the T&P cell serves as an active bridge between classroom learning and employment outcomes.
             </p>
             <div className="mt-8 border-t border-slate/15 pt-5">
-              <p className="font-heading text-2xl text-navy">Prof. Meenal Kulkarni</p>
-              <p className="mt-1 text-sm font-semibold text-gold">Training & Placement Officer</p>
+              <p className="font-heading text-2xl text-navy">{placementContact.name}</p>
+              <p className="mt-1 text-sm font-semibold text-gold">{placementContact.role}</p>
+              <a href={`mailto:${placementContact.email}`} className="mt-2 inline-block text-sm text-slate hover:text-navy">
+                {placementContact.email}
+              </a>
             </div>
           </article>
         </div>

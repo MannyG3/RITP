@@ -23,13 +23,13 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="border border-white/25 rounded-sm p-8 md:p-12 bg-black/20"
         >
-          <p className="text-gold text-xs uppercase tracking-[0.2em]">RITP Pune | Lohegaon</p>
+          <p className="text-gold text-xs uppercase tracking-[0.2em]">Established in 2009 | Lohegaon, Pune</p>
           <h1 id="hero-heading" className="mt-4 font-heading text-4xl md:text-6xl text-white tracking-tight leading-tight">
-            75 Years of Technical Mastery
+            17 Years of Technical Mastery
           </h1>
           <p className="mt-5 text-white/90 max-w-xl text-sm md:text-base">
-            AICTE and MSBTE approved diploma programs delivering disciplined academics, applied labs, and
-            industry-linked outcomes for future technocrats.
+            AICTE approved, affiliated to MSBTE, and recognized by Government of Maharashtra, delivering
+            disciplined diploma education with industry-linked outcomes for future technocrats.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a

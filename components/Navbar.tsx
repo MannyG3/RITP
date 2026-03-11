@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { navTabs } from "@/constants/data";
+import { instituteProfile } from "@/constants/site-pages";
 
 export function Navbar({ forceSolid = false }: { forceSolid?: boolean }) {
   const pathname = usePathname();
@@ -78,7 +79,7 @@ export function Navbar({ forceSolid = false }: { forceSolid?: boolean }) {
                   info@ritppune.com
                 </a>
               </div>
-              <div className="md:hidden text-xs">RIT Polytechnic Pune</div>
+              <div className="md:hidden text-xs">{instituteProfile.shortName}</div>
               <div className="hidden md:block">Online Services • Communication</div>
             </div>
           </div>
@@ -86,8 +87,14 @@ export function Navbar({ forceSolid = false }: { forceSolid?: boolean }) {
           <div className="bg-[#ececec] border-b border-slate/15">
             <div className="mx-auto max-w-grid px-4 md:px-8 py-5 md:py-7 text-center">
               <Image src="/images/college-logo.png" alt="College crest" width={132} height={132} className="mx-auto h-24 w-auto" priority />
-              <h1 className="mt-2 font-heading text-3xl md:text-4xl font-semibold tracking-tight text-[#ef3340]">RIT POLYTECHNIC PUNE</h1>
-              <p className="mt-1 text-[#ef3340] text-lg">(Government-Aided Autonomous Institute)</p>
+              <p className="mt-2 text-[#ef3340] text-base md:text-lg font-medium">Kasegaon Education Society&apos;s</p>
+              <h1 className="mt-1 font-heading text-2xl md:text-4xl font-semibold tracking-tight text-[#ef3340]">
+                RAJARAMBAPU INSTITUTE OF TECHNOLOGY
+                <span className="block text-xl md:text-3xl">(POLYTECHNIC) LOHEGAON, PUNE</span>
+              </h1>
+              <p className="mt-2 text-[#ef3340] text-sm md:text-base">
+                {instituteProfile.affiliations}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -140,7 +147,7 @@ export function Navbar({ forceSolid = false }: { forceSolid?: boolean }) {
           <div className="mx-auto max-w-grid px-4 md:px-8 h-14 flex lg:hidden items-center justify-between">
             <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-navy">
               <Image src="/images/college-logo.png" alt="College crest" width={28} height={28} className="h-7 w-7" />
-              RIT Polytechnic Pune
+              {instituteProfile.shortName}
             </Link>
             <button
               className="h-10 px-4 rounded-sm border border-navy text-navy text-sm font-semibold"

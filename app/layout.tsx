@@ -7,13 +7,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto" });
 
 export const metadata: Metadata = {
-  title: "RIT Polytechnic Pune | Lohegaon",
+  title: "Rajarambapu Institute of Technology (Polytechnic), Lohegaon, Pune",
   description:
-    "RIT Polytechnic Pune, Lohegaon. AICTE and MSBTE approved diploma institute with industry-led departments and placement excellence.",
+    "Kasegaon Education Society's Rajarambapu Institute of Technology (Polytechnic), Lohegaon, Pune.",
   openGraph: {
     title: "RIT Polytechnic Pune",
     description:
-      "75 Years of Technical Mastery with AICTE and MSBTE approved diploma programs at Lohegaon, Pune.",
+      "Approved by AICTE, Affiliated to MSBTE, and Recognized by Government of Maharashtra. DTE Code: 6456.",
     url: "https://ritppune.com",
     siteName: "RIT Polytechnic Pune",
     type: "website"

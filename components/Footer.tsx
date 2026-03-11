@@ -27,9 +27,9 @@ export function Footer() {
 
           <p className="mt-7 text-2xl font-heading text-navy">Address</p>
           <address className="mt-2 not-italic text-slate text-base leading-8">
-            RIT Polytechnic Pune, Lohegaon,
+            S. No. 35/4, Vadgaon-Shinde Road,
             <br />
-            Pune, Maharashtra, India.
+            Lohegaon, Pune-411047.
           </address>
         </section>
 
@@ -53,23 +53,28 @@ export function Footer() {
           <h3 className="font-heading text-3xl text-navy">Get In Touch</h3>
           <ul className="mt-5 space-y-4 text-lg text-slate">
             <li>
-              <a href="tel:+912023300383" className="hover:text-navy transition-colors">
-                +91 20 23300383
+              <a href="tel:+919607956658" className="hover:text-navy transition-colors">
+                Tel. 9607956658/59/60
               </a>
             </li>
             <li>
-              <a href="mailto:info@ritpune.edu.in" className="hover:text-navy transition-colors">
-                info@ritpune.edu.in
+              <a href="mailto:kesadmin@ritppune.com" className="hover:text-navy transition-colors">
+                Email: kesadmin@ritppune.com
               </a>
             </li>
             <li>
-              <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="hover:text-navy transition-colors">
-                Get Direction
+              <a href="https://www.ritppune.com" target="_blank" rel="noreferrer" className="hover:text-navy transition-colors">
+                Website: www.ritppune.com
               </a>
             </li>
             <li>
-              <a href="#" className="font-semibold text-navy hover:text-gold transition-colors">
-                Link to Old Website
+              <a
+                href="https://maps.google.com/?q=S.+No.+35/4,+Vadgaon-Shinde+Road,+Lohegaon,+Pune-411047"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-navy hover:text-gold transition-colors"
+              >
+                View Campus Location
               </a>
             </li>
           </ul>

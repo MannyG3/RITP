@@ -61,10 +61,15 @@ export function DepartmentTabs({ department }: { department: DepartmentDetail })
           <aside className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
             <h3 className="font-heading text-2xl text-navy">Why This Department</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate">
-              <li>Industry-oriented curriculum with diploma-level execution focus</li>
-              <li>Structured labs and practical assessments every term</li>
-              <li>Project culture aligned to placement and higher-study readiness</li>
-              <li>Faculty mentoring for internships, presentations, and technical events</li>
+              <li>
+                Intake: <span className="font-semibold text-navy">{department.intake} Seats</span>
+              </li>
+              <li>
+                Duration: <span className="font-semibold text-navy">{department.duration}</span>
+              </li>
+              {department.focusAreas.map((focus) => (
+                <li key={focus}>{focus}</li>
+              ))}
             </ul>
           </aside>
         </div>

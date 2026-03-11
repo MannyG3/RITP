@@ -1,7 +1,7 @@
 import { AdmissionsInquiryForm } from "@/components/AdmissionsInquiryForm";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
-import { admissionsSteps } from "@/constants/site-pages";
+import { admissionsInfo, admissionsSteps } from "@/constants/site-pages";
 
 export default function AdmissionsPage() {
   return (
@@ -36,6 +36,32 @@ export default function AdmissionsPage() {
         </article>
 
         <AdmissionsInquiryForm />
+      </section>
+
+      <section className="mx-auto max-w-grid px-4 md:px-8 pb-16">
+        <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
+          <h2 className="font-heading text-3xl text-navy">Admissions 2026 Snapshot</h2>
+          <p className="mt-4 text-slate leading-7">
+            <span className="font-semibold text-navy">Eligibility:</span> {admissionsInfo.eligibility}
+          </p>
+          <p className="mt-3 text-slate leading-7">
+            <span className="font-semibold text-navy">Process:</span> {admissionsInfo.process}
+          </p>
+          <div className="mt-5">
+            <p className="font-semibold text-navy">Documents Required:</p>
+            <ul className="mt-2 space-y-2 text-slate">
+              {admissionsInfo.documents.map((doc) => (
+                <li key={doc}>• {doc}</li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-5 text-slate">
+            <span className="font-semibold text-navy">Admissions Office:</span> {admissionsInfo.officeContact} |
+            <a href={`tel:${admissionsInfo.officePhone}`} className="ml-2 font-semibold text-navy hover:text-gold">
+              {admissionsInfo.officePhone}
+            </a>
+          </p>
+        </article>
       </section>
     </SharedLayout>
   );
