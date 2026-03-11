@@ -406,10 +406,18 @@ export const aboutSections: AboutSection[] = [
   {
     slug: "about-us",
     title: "About us",
-    summary: "Institution profile, establishment background, and statutory approvals.",
+    summary: "About institute profile, vision, and mission of RITP Lohegaon Pune.",
     content: [
-      `${instituteProfile.fullName} (DTE Code: ${instituteProfile.dteCode}) was established in ${instituteProfile.establishedYear}.`,
-      `The institute is ${instituteProfile.affiliations} and is focused on delivering practical, industry-aligned diploma education.`
+      "ABOUT INSTITUTE",
+      "RITP Lohegaon Pune",
+      "The institute intends to achieve development of technical and non-technical skills in students by providing them best of quality education. The institute aims to prepare students for higher education as well as making them employable after successful completion of course. The institute campus has well developed laboratories, library, class rooms, hostel, canteen and play ground with all amenities. It is one of the best diploma in engineering colleges (Polytechnic) in Pune.",
+      "Vision",
+      "To develop skilled professionals through the technical education.",
+      "Mission",
+      "M1 - To excel a technical knowledge in a specific domain.",
+      "M2 - To involve the faculties and students in Emerging Teaching-Learning practices.",
+      "M3 - To prepare the students for higher studies in reputed institute.",
+      "M4 - To provide skilled manpower to the society."
     ]
   },
   {
