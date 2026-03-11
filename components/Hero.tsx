@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[92vh] pt-20" aria-labelledby="hero-heading">
       <Image
-        src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80"
+        src="https://studyriserr.com/images/cover/171295144316009407661.jpg"
         alt="RIT Polytechnic Pune campus at Lohegaon"
         fill
         className="object-cover"

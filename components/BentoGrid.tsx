@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { departments } from "@/constants/data";
 
@@ -23,21 +24,23 @@ export function BentoGrid() {
             transition={{ duration: 0.4, delay: index * 0.07 }}
             className="group rounded-sm border border-slate/20 p-5 md:p-6 shadow-card bg-white"
           >
-            <h3 className="font-heading text-xl text-navy">{dept.name}</h3>
+            <Link href={dept.pageHref} className="inline-block">
+              <h3 className="font-heading text-xl text-navy hover:text-gold transition-colors">{dept.name}</h3>
+            </Link>
             <p className="mt-3 text-sm text-slate leading-relaxed">{dept.summary}</p>
-            <div className="mt-5 hidden group-hover:flex gap-2">
-              <a
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Link
                 href={dept.hodMessageHref}
                 className="h-10 px-3 inline-flex items-center rounded-sm border border-slate/30 text-xs font-semibold text-slate"
               >
-                Quick View HOD Message
-              </a>
-              <a
+                View Department
+              </Link>
+              <Link
                 href={dept.curriculumHref}
                 className="h-10 px-3 inline-flex items-center rounded-sm border border-gold text-xs font-semibold text-gold"
               >
                 Curriculum
-              </a>
+              </Link>
             </div>
           </motion.article>
         ))}

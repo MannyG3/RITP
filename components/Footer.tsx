@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const quickLinks = [
-  { label: "About Us", href: "#about" },
-  { label: "Programs Offered", href: "#departments" },
-  { label: "Campus Life", href: "#campus-life" },
-  { label: "Placements", href: "#placement" },
-  { label: "Admissions", href: "#admissions" },
-  { label: "Grievance Portal", href: "#grievance" }
+  { label: "About Us", href: "/about" },
+  { label: "Programs Offered", href: "/departments/computer" },
+  { label: "Campus Life", href: "/#activities" },
+  { label: "Placements", href: "/placement-cell" },
+  { label: "Admissions", href: "/admissions" },
+  { label: "Home", href: "/" }
 ];
 
 export function Footer() {

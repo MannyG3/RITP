@@ -1,27 +1,45 @@
+const departmentMenu = [
+  { label: "Computer Engineering", href: "/departments/computer" },
+  { label: "Mechanical Engineering", href: "/departments/mech" },
+  { label: "AIML", href: "/departments/aiml" },
+  { label: "Civil Engineering", href: "/departments/civil" }
+];
+
+const studentCareerMenu = [
+  { label: "Placement Cell", href: "/placement-cell" },
+  { label: "Internship Guidance", href: "/placement-cell#success-stories-title" },
+  { label: "Career Readiness", href: "/placement-cell" }
+];
+
+const academicsMenu = [
+  { label: "Computer Engineering", href: "/departments/computer" },
+  { label: "Mechanical Engineering", href: "/departments/mech" },
+  { label: "AIML", href: "/departments/aiml" },
+  { label: "Civil Engineering", href: "/departments/civil" }
+];
+
 export const aboutMenu = [
-  { label: "About us", href: "#about" },
-  { label: "About KES", href: "#about-kes" },
-  { label: "VISION & MISSION", href: "#vision" },
-  { label: "Principal's Message", href: "#principal" },
-  { label: "Secretary's Message", href: "#secretary" },
-  { label: "BOG members", href: "#bog" },
-  { label: "Board of Governance", href: "#governance" },
-  { label: "Institute Awards", href: "#awards" },
-  { label: "Media Broadcasting", href: "#media" },
-  { label: "Location", href: "#location" }
+  { label: "About us", href: "/about#about" },
+  { label: "About KES", href: "/about#about-kes" },
+  { label: "VISION & MISSION", href: "/about#vision" },
+  { label: "Principal's Message", href: "/about#principal" },
+  { label: "Secretary's Message", href: "/about#secretary" },
+  { label: "BOG members", href: "/about#bog" },
+  { label: "Board of Governance", href: "/about#governance" },
+  { label: "Institute Awards", href: "/about#awards" },
+  { label: "Media Broadcasting", href: "/about#media" },
+  { label: "Location", href: "/about#location" }
 ];
 
 export const navTabs = [
-  { label: "Home", href: "#", active: true },
-  { label: "Departments", href: "#departments" },
-  { label: "RITP Unique", href: "#ritp-unique", children: aboutMenu },
-  { label: "Admission", href: "#admissions" },
-  { label: "Academics", href: "#academics" },
-  { label: "Facilities", href: "#facilities" },
-  { label: "T & P CELL", href: "#placement" },
-  { label: "Student Activities", href: "#activities" },
-  { label: "Professional Body", href: "#professional-body" },
-  { label: "Alumni", href: "#alumni" }
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about", children: aboutMenu },
+  { label: "Admissions", href: "/admissions" },
+  { label: "Academics & Programmes", href: "/departments/computer", children: academicsMenu },
+  { label: "Student Careers", href: "/placement-cell", children: studentCareerMenu },
+  { label: "Campus life", href: "/#activities" },
+  { label: "Research & Consultancy", href: "/#professional-body" },
+  { label: "Departments", href: "/departments/computer", children: departmentMenu }
 ];
 
 export const impactMetrics = [
@@ -35,29 +53,33 @@ export const departments = [
     id: "mechanical",
     name: "Mechanical Engineering",
     summary: "Advanced manufacturing, CAD/CAM, and thermal engineering practice in modern workshops.",
-    hodMessageHref: "#",
-    curriculumHref: "#"
+    pageHref: "/departments/mech",
+    hodMessageHref: "/departments/mech",
+    curriculumHref: "/departments/mech"
   },
   {
     id: "civil",
     name: "Civil Engineering",
     summary: "Structural, geotechnical, and surveying skills aligned to real infrastructure projects.",
-    hodMessageHref: "#",
-    curriculumHref: "#"
+    pageHref: "/departments/civil",
+    hodMessageHref: "/departments/civil",
+    curriculumHref: "/departments/civil"
   },
   {
     id: "computer",
     name: "Computer Engineering",
     summary: "Software development, networking, and cloud-first problem solving for modern industries.",
-    hodMessageHref: "#",
-    curriculumHref: "#"
+    pageHref: "/departments/computer",
+    hodMessageHref: "/departments/computer",
+    curriculumHref: "/departments/computer"
   },
   {
     id: "aiml",
     name: "AIML",
     summary: "AI model engineering, data systems, and applied machine intelligence in industry contexts.",
-    hodMessageHref: "#",
-    curriculumHref: "#"
+    pageHref: "/departments/aiml",
+    hodMessageHref: "/departments/aiml",
+    curriculumHref: "/departments/aiml"
   }
 ];
 
