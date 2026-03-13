@@ -268,6 +268,95 @@ export const admissionsInfo = {
   officePhone: "9822850858"
 };
 
+export type StudentActivitySlug =
+  | "vlab"
+  | "admission-form"
+  | "bus-enrollment-form"
+  | "ritech-2k25"
+  | "institute-branch-transfer"
+  | "ideathon"
+  | "fy-orientation"
+  | "cultural-activities"
+  | "sports-activities"
+  | "social-activities"
+  | "clubs-activities"
+  | "student-council"
+  | "online-platforms";
+
+export type StudentActivityPage = {
+  slug: StudentActivitySlug;
+  title: string;
+  description: string;
+};
+
+export const studentActivityPages: StudentActivityPage[] = [
+  {
+    slug: "vlab",
+    title: "VLab",
+    description: "Virtual laboratory access and simulation-based practice support for students."
+  },
+  {
+    slug: "admission-form",
+    title: "Admission Form",
+    description: "Admission-related form guidance and submission support for applicants and enrolled students."
+  },
+  {
+    slug: "bus-enrollment-form",
+    title: "Bus Enrollment Form",
+    description: "Transport enrollment information for students who opt for institute bus services."
+  },
+  {
+    slug: "ritech-2k25",
+    title: "RITECH 2K25",
+    description: "Annual technical event section covering participation, competition updates, and activity highlights."
+  },
+  {
+    slug: "institute-branch-transfer",
+    title: "Institute/Branch Transfer",
+    description: "Guidance on transfer requests based on seat availability and institutional policies."
+  },
+  {
+    slug: "ideathon",
+    title: "Ideathon",
+    description: "Innovation challenge space for student teams to present ideas and solve real-world problems."
+  },
+  {
+    slug: "fy-orientation",
+    title: "FY Orientation",
+    description: "Orientation information for first-year students including academics, rules, and support systems."
+  },
+  {
+    slug: "cultural-activities",
+    title: "Cultural Activities",
+    description: "Campus cultural programs, celebrations, and student talent platforms throughout the academic year."
+  },
+  {
+    slug: "sports-activities",
+    title: "Sports Activities",
+    description: "Sports participation, practice schedules, tournaments, and physical fitness opportunities for students."
+  },
+  {
+    slug: "social-activities",
+    title: "Social Activities",
+    description: "Community engagement and social responsibility activities conducted by student groups and departments."
+  },
+  {
+    slug: "clubs-activities",
+    title: "Clubs Activities",
+    description: "Technical and non-technical club activities that promote innovation, teamwork, and leadership."
+  },
+  {
+    slug: "student-council",
+    title: "Student Council",
+    description: "Student representation body supporting coordination of events, communication, and campus initiatives."
+  },
+  {
+    slug: "online-platforms",
+    title: "Online Platforms",
+    description: "Digital platforms for notices, learning resources, communication, and student service access."
+  }
+];
+
 export type AdmissionTrackSlug = "first-year" | "direct-second-year";
 
 export type AdmissionTrack = {

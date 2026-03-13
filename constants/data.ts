@@ -1,11 +1,4 @@
-import { aboutSections, campusLifePages } from "@/constants/site-pages";
-
-const departmentMenu = [
-  { label: "Computer Engineering", href: "/departments/computer" },
-  { label: "Mechanical Engineering", href: "/departments/mech" },
-  { label: "AIML", href: "/departments/aiml" },
-  { label: "Civil Engineering", href: "/departments/civil" }
-];
+import { aboutSections, campusLifePages, studentActivityPages } from "@/constants/site-pages";
 
 const studentCareerMenu = [
   { label: "Placement Cell", href: "/placement-cell" },
@@ -17,7 +10,9 @@ const academicsMenu = [
   { label: "Computer Engineering", href: "/departments/computer" },
   { label: "Mechanical Engineering", href: "/departments/mech" },
   { label: "AIML", href: "/departments/aiml" },
-  { label: "Civil Engineering", href: "/departments/civil" }
+  { label: "Civil Engineering", href: "/departments/civil" },
+  { label: "Science and Humanities", href: "/academics/science-and-humanities" },
+  { label: "Admin Office", href: "/academics/admin-office" }
 ];
 
 const admissionsMenu = [
@@ -25,9 +20,33 @@ const admissionsMenu = [
   { label: "Direct Second Year", href: "/admissions/direct-second-year" }
 ];
 
-const campusLifeMenu = campusLifePages.map((item) => ({
+const hiddenCampusLifeSlugs = new Set([
+  "iconic-places-at-campus",
+  "academic-buildings",
+  "departments",
+  "tilak-hall",
+  "diploma-wing",
+  "computing",
+  "walchand-informatics-centre",
+  "student-activities",
+  "cultural-activities",
+  "sports-activities",
+  "social-activities",
+  "clubs-activities",
+  "student-council",
+  "online-platforms"
+]);
+
+const campusLifeMenu = campusLifePages
+  .filter((item) => !hiddenCampusLifeSlugs.has(item.slug))
+  .map((item) => ({
+    label: item.title,
+    href: `/campus-life/${item.slug}`
+  }));
+
+const studentActivitiesMenu = studentActivityPages.map((item) => ({
   label: item.title,
-  href: `/campus-life/${item.slug}`
+  href: `/student-activities/${item.slug}`
 }));
 
 export const aboutMenu = aboutSections
@@ -41,11 +60,10 @@ export const navTabs = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", children: aboutMenu },
   { label: "Admissions", href: "/admissions", children: admissionsMenu },
+  { label: "Student Activities", href: "/student-activities", children: studentActivitiesMenu },
   { label: "Academics & Programmes", href: "/departments/computer", children: academicsMenu },
   { label: "Student Careers", href: "/placement-cell", children: studentCareerMenu },
-  { label: "Campus life", href: "/campus-life", children: campusLifeMenu },
-  { label: "Research & Consultancy", href: "/#professional-body" },
-  { label: "Departments", href: "/departments/computer", children: departmentMenu }
+  { label: "Campus life", href: "/campus-life", children: campusLifeMenu }
 ];
 
 export const impactMetrics = [
