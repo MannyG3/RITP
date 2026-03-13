@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
 import { admissionTracks } from "@/constants/site-pages";
+
+export const metadata: Metadata = {
+  title: "First Year Diploma Admission 2026 – RITP Pune | SSC CAP Process",
+  description:
+    "First Year Diploma admission at RITP Pune via SSC-based Centralised Admission Process (CAP). MSBTE affiliated, DTE Code 6456. Eligibility, documents, and step-by-step guide.",
+  alternates: { canonical: "https://ritppune.com/admissions/first-year" },
+};
 
 export default function FirstYearAdmissionPage() {
   const track = admissionTracks.find((item) => item.slug === "first-year");

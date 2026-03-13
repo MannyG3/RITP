@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
 import { campusLifePages } from "@/constants/site-pages";
+
+export const metadata: Metadata = {
+  title: "Campus Life – RITP Polytechnic Pune",
+  description:
+    "Discover campus life at RITP Pune – a vibrant polytechnic campus in Lohegaon, Pune with modern labs, sports facilities, cultural events, and a student-friendly environment.",
+  alternates: { canonical: "https://ritppune.com/campus-life" },
+};
 
 export default function CampusLifePage() {
   return (

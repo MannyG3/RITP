@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { PlacementTestimonials } from "@/components/PlacementTestimonials";
 import { SharedLayout } from "@/components/SharedLayout";
+
+export const metadata: Metadata = {
+  title: "Placement Cell & Training – RITP Polytechnic Pune",
+  description:
+    "RITP Pune Placement Cell – connecting students with top recruiters. Campus placements, industry training, and career services for diploma students in Computer, Civil, Mechanical & AIML Engineering.",
+  alternates: { canonical: "https://ritppune.com/placement-cell" },
+};
 import { placementContact, placementServices, placementStats, recruiterWall } from "@/constants/site-pages";
 
 export const dynamic = "force-static";

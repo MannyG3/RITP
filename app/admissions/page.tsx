@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import { AdmissionsInquiryForm } from "@/components/AdmissionsInquiryForm";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
 import Link from "next/link";
 import { admissionsInfo, admissionsSteps } from "@/constants/site-pages";
+
+export const metadata: Metadata = {
+  title: "Admissions 2026 – RITP Polytechnic Pune | First Year & Lateral Entry",
+  description:
+    "Admissions open at RITP Pune for 2026. Apply for First Year Diploma (SSC-based CAP) and Direct Second Year (Lateral Entry) in Computer, Civil, Mechanical & AIML Engineering. MSBTE affiliated, DTE Code 6456.",
+  alternates: { canonical: "https://ritppune.com/admissions" },
+};
 
 export default function AdmissionsPage() {
   return (

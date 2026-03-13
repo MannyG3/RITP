@@ -3,7 +3,6 @@ export type DepartmentSlug = "computer" | "aiml" | "civil" | "mech";
 export type DepartmentFaculty = {
   name: string;
   designation: string;
-  linkedin: string;
   phone?: string;
   email?: string;
 };
@@ -49,15 +48,21 @@ export const departmentDetails: Record<DepartmentSlug, DepartmentDetail> = {
     ],
     faculty: [
       {
-        name: "Vikramsinh Saste",
+        name: "Vinod Jadhav",
         designation: "HOD",
-        linkedin: "https://www.linkedin.com/",
-        phone: "7350199501",
-        email: "vikramsinh.saste@ritppune.com"
+        phone: "9096871856",
+        email: "vinod.jadhav@ritppune.com"
       },
-      { name: "Prof. Snehal Patwardhan", designation: "Faculty", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Akash Salunke", designation: "Lecturer, Programming Systems", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Neha Shinde", designation: "Lecturer, Database Systems", linkedin: "https://www.linkedin.com/" }
+      { name: "Komal Lokhande", designation: "Lecturer", phone: "8208545119", email: "komal.lokhande@ritppune.com" },
+      { name: "Vrushali Gaikwad", designation: "Lecturer", phone: "9767904244", email: "vrushali.gaikwad@ritppune.com" },
+      { name: "Rutuja Lokhande", designation: "Lecturer", phone: "7028242608", email: "rutuja.lokhande@ritppune.com" },
+      { name: "Monika Johare", designation: "Lecturer", phone: "9322045166", email: "monika.johare@ritppune.com" },
+      { name: "Reshma Bhalke", designation: "Lecturer", phone: "7875633243", email: "reshma.bhalke@ritppune.com" },
+      { name: "Meghana Goski", designation: "Lecturer", phone: "9158244396", email: "meghana.goski@ritppune.com" },
+      { name: "Prajakta Buva", designation: "Lecturer", phone: "7558242866", email: "prajakta.buva@ritppune.com" },
+      { name: "Pooja Landge", designation: "Lecturer", phone: "8669133649", email: "pooja.landge@ritppune.com" },
+      { name: "Shital Kedare", designation: "Lecturer", phone: "9096327650", email: "shital.kedare@ritppune.com" },
+      { name: "Avishkar Dabare", designation: "Lecturer", phone: "7499271803", email: "avishkar.dabare@ritppune.com" }
     ],
     labs: [
       {
@@ -90,9 +95,11 @@ export const departmentDetails: Record<DepartmentSlug, DepartmentDetail> = {
       "The curriculum balances statistics, Python-based experimentation, and deployment awareness so students gain practical AI literacy rather than purely theoretical exposure."
     ],
     faculty: [
-      { name: "Prof. Aditi Kulkarni", designation: "Head of Department", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Pranav Deshmukh", designation: "Lecturer, ML Applications", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Rutuja More", designation: "Lecturer, Data Engineering", linkedin: "https://www.linkedin.com/" }
+      { name: "Vikramsinh Saste", designation: "HOD", phone: "7350199501", email: "vikramsinh.saste@ritppune.com" },
+      { name: "Mayur Gund", designation: "Lecturer", phone: "8605019902", email: "mayur.gund@ritppune.com" },
+      { name: "Gouri Shewalkar", designation: "Lecturer", phone: "8888870582", email: "gouri.shewalkar@ritppune.com" },
+      { name: "Shweta Kolapkar", designation: "Lecturer", phone: "7517541867", email: "shweta.kolapkar@ritppune.com" },
+      { name: "Manasi Dhamak", designation: "Lecturer", phone: "7020493249", email: "manasi.dhamak@ritppune.com" }
     ],
     labs: [
       {
@@ -125,9 +132,14 @@ export const departmentDetails: Record<DepartmentSlug, DepartmentDetail> = {
       "Students develop site-ready skills through drawing work, material testing, field exposure, and software-assisted civil planning exercises."
     ],
     faculty: [
-      { name: "Prof. Rohan Jadhav", designation: "Head of Department", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Priya Khot", designation: "Lecturer, Surveying", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Omkar Chavan", designation: "Lecturer, Structural Engineering", linkedin: "https://www.linkedin.com/" }
+      { name: "Sonali Kankriya", designation: "HOD", phone: "7276460827", email: "sonali.kankriya@ritppune.com" },
+      { name: "Tejas Patil", designation: "Lecturer", phone: "9423872058", email: "tejas.patil@ritppune.com" },
+      { name: "Pooja Waghmode", designation: "Lecturer", phone: "7035535500", email: "pooja.waghmode@ritppune.com" },
+      { name: "Priyanka Shinde", designation: "Lecturer", phone: "8237884915", email: "priyanka.shinde@ritppune.com" },
+      { name: "Ajit Pakhare", designation: "Lecturer", phone: "8956580602", email: "ajit.pakhare@ritppune.com" },
+      { name: "Sanket Kanthale", designation: "Lecturer", phone: "9859944777", email: "Sanket.kanthale@ritppune.com" },
+      { name: "Shamal Bondar", designation: "Lecturer", phone: "9146398067", email: "shamal.bondar@ritppune.com" },
+      { name: "Sumit Shinde", designation: "Lecturer", phone: "9156297641", email: "sumit.shinde@ritppune.com" }
     ],
     labs: [
       {
@@ -160,9 +172,12 @@ export const departmentDetails: Record<DepartmentSlug, DepartmentDetail> = {
       "Students engage with workshops, machine tools, CAD/CAM processes, and industrial applications linked to automotive and production sectors."
     ],
     faculty: [
-      { name: "Prof. Rahul Pawar", designation: "Head of Department", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Swati Nikam", designation: "Lecturer, Thermal Systems", linkedin: "https://www.linkedin.com/" },
-      { name: "Prof. Kunal Bhosale", designation: "Lecturer, Manufacturing Processes", linkedin: "https://www.linkedin.com/" }
+      { name: "Ajinkya Satam", designation: "HOD", phone: "9960292608", email: "ajinkya.satam@ritppune.com" },
+      { name: "Patil Gopal", designation: "Academic Dean", phone: "9503308021", email: "gopal.patil@ritppune.com" },
+      { name: "Abhijit Patil", designation: "Lecturer", phone: "7020115356", email: "abhijit.patil@ritppune.com" },
+      { name: "Mayur Khairnar", designation: "Lecturer", phone: "9561798646", email: "mayur.khairnar@ritppune.com" },
+      { name: "Reddy Aishwarya", designation: "Lecturer", phone: "9632416251", email: "aishwarya.reddy@ritppune.com" },
+      { name: "Madhur Charde", designation: "Lecturer", phone: "7249096490", email: "madhur.charde@ritppune.com" }
     ],
     labs: [
       {
@@ -307,7 +322,7 @@ export const studentActivityPages: StudentActivityPage[] = [
   },
   {
     slug: "ritech-2k25",
-    title: "RITECH 2K25",
+    title: "KAIZEN TechFest",
     description: "Annual technical event section covering participation, competition updates, and activity highlights."
   },
   {

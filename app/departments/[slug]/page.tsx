@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { DepartmentTabs } from "@/components/DepartmentTabs";
@@ -8,6 +9,22 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return Object.keys(departmentDetails).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const department = departmentDetails[slug as DepartmentSlug];
+  if (!department) return {};
+  return {
+    title: `${department.name} – RITP Polytechnic Pune`,
+    description: `${department.name} at RITP Pune. ${department.heroTitle} MSBTE affiliated diploma programme. Lohegaon, Pune.`,
+    alternates: { canonical: `https://ritppune.com/departments/${slug}` },
+    openGraph: {
+      title: `${department.name} – RITP Polytechnic Pune`,
+      description: `${department.heroTitle}`,
+      url: `https://ritppune.com/departments/${slug}`,
+    },
+  };
 }
 
 export const dynamic = "force-static";

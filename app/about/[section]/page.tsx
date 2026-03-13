@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -6,6 +7,17 @@ import { SharedLayout } from "@/components/SharedLayout";
 import { aboutSections, type AboutSectionSlug } from "@/constants/site-pages";
 
 export const dynamicParams = false;
+
+export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
+  const { section } = await params;
+  const item = aboutSections.find((s) => s.slug === section);
+  if (!item) return {};
+  return {
+    title: `${item.title} – RITP Polytechnic Pune`,
+    description: Array.isArray(item.content) && item.content.length > 0 ? item.content[0].slice(0, 155) : `${item.title} at RITP – Rajarambapu Institute of Technology (Polytechnic), Lohegaon, Pune.`,
+    alternates: { canonical: `https://ritppune.com/about/${section}` },
+  };
+}
 
 export function generateStaticParams() {
   return aboutSections.map((item) => ({ section: item.slug }));

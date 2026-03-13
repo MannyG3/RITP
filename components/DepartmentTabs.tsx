@@ -91,15 +91,6 @@ export function DepartmentTabs({ department }: { department: DepartmentDetail })
                   {member.email}
                 </a>
               ) : null}
-              <Link
-                href={member.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
-              >
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate/20 text-xs">in</span>
-                LinkedIn
-              </Link>
             </article>
           ))}
         </div>

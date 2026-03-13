@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SharedLayout } from "@/components/SharedLayout";
 import { admissionTracks } from "@/constants/site-pages";
+
+export const metadata: Metadata = {
+  title: "Direct Second Year Lateral Entry Admission – RITP Pune",
+  description:
+    "Direct Second Year (DSY) lateral entry diploma admission at RITP Pune. Eligible for HSC Science, MCVC & ITI graduates. MSBTE affiliated, DTE Code 6456. Step-by-step CAP process.",
+  alternates: { canonical: "https://ritppune.com/admissions/direct-second-year" },
+};
 
 export default function DirectSecondYearAdmissionPage() {
   const track = admissionTracks.find((item) => item.slug === "direct-second-year");

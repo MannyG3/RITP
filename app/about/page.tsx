@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { InstitutionalSections } from "@/components/InstitutionalSections";
 import { SharedLayout } from "@/components/SharedLayout";
+
+export const metadata: Metadata = {
+  title: "About RITP Pune – Vision, Mission & Principal's Message",
+  description:
+    "Learn about RITP – Rajarambapu Institute of Technology (Polytechnic), Lohegaon, Pune. Established by Kasegaon Education Society. AICTE approved, MSBTE affiliated polytechnic with a strong vision for technical education.",
+  alternates: { canonical: "https://ritppune.com/about" },
+};
 
 export default function AboutPage() {
   return (

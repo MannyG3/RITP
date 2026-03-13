@@ -1,5 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/Breadcrumb";
+
+export const metadata: Metadata = {
+  title: "Student Activities – RITP Polytechnic Pune",
+  description:
+    "Explore student activities at RITP Pune – cultural events, sports, clubs, student council, KAIZEN TechFest, VLab, ideathon, orientation and more.",
+  alternates: { canonical: "https://ritppune.com/student-activities" },
+};
 import { SharedLayout } from "@/components/SharedLayout";
 import { studentActivityPages } from "@/constants/site-pages";
 
