@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --navy: #002147;
+  --navy: #1A3A6E;
+  --crimson: #C41E3A;
+  --gold: #D4A017;
   --slate: #334155;
-  --gold: #d4af37;
+  --bg-color: #F8F9FA;
 }
 
 * {
@@ -20,25 +22,32 @@ body {
 
 body {
   color: #0f172a;
-  background: #ffffff;
+  background: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--navy);
+  color: #ffffff;
 }
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(26, 58, 110, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 58, 110, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 @keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .ticker-track {
   animation: ticker 28s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }

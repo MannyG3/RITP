@@ -1,52 +1,67 @@
-import { recruiters, toppers } from "@/constants/data";
+"use client";
 
-const repeatedRecruiters = [...recruiters, ...recruiters];
-
-const recruiterBrand = {
-  "Tata Motors": { code: "TM", tone: "from-[#123b72] to-[#0b2a50]" },
-  Hyundai: { code: "HY", tone: "from-[#0c4d86] to-[#06325b]" },
-  KPIT: { code: "KP", tone: "from-[#6c1436] to-[#470b22]" },
-  TCS: { code: "TC", tone: "from-[#0a5f4f] to-[#064034]" },
-  "Shutter Cloud": { code: "SC", tone: "from-[#604000] to-[#3f2b00]" },
-  "Bharat Forge": { code: "BF", tone: "from-[#4a2a78] to-[#2f1b4d]" }
-} as const;
+import Image from "next/image";
+import { recruiterWall, placementStats } from "@/constants/site-pages";
+import { IconBuilding } from "@tabler/icons-react";
 
 export function RecruiterCarousel() {
   return (
-    <section id="placement" className="mx-auto max-w-grid px-4 md:px-8 pb-16 md:pb-20" aria-labelledby="placement-title">
-      <h2 id="placement-title" className="font-heading text-3xl md:text-4xl text-navy tracking-tight">
-        Alumni and Recruiter Network
-      </h2>
+    <section id="placement" className="py-20 lg:py-28 bg-white" aria-labelledby="recruiter-heading">
+      <div className="mx-auto max-w-grid px-4 md:px-8">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-navy/5 border border-navy/10 text-navy text-xs font-bold uppercase mb-4">
+            <IconBuilding size={13} />
+            Career Placements
+          </div>
 
-      <div className="mt-7 overflow-hidden rounded-sm border border-slate/20 bg-white">
-        <div className="ticker-track flex w-[200%] py-4">
-          {repeatedRecruiters.map((name, index) => (
+          <h2
+            id="recruiter-heading"
+            className="mt-4 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy-dark leading-tight"
+          >
+            Our Leading{" "}
+            <span className="font-serif italic font-normal text-navy">Recruiting Partners</span>
+          </h2>
+
+          <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed">
+            Over 50+ national and multinational engineering enterprises regularly recruit from RITP Pune.
+          </p>
+        </div>
+
+        {/* Recruiter Logos Grid */}
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {recruiterWall.map((recruiter) => (
             <div
-              key={`${name}-${index}`}
-              className="min-w-[180px] md:min-w-[220px] h-16 mx-2 rounded-sm border border-slate/20 flex items-center justify-center gap-3 text-slate font-semibold grayscale hover:grayscale-0 transition-all"
+              key={recruiter.name}
+              className="h-24 border border-black/8 bg-[#FAFBFD] p-4 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:bg-white transition-all group"
             >
-              <span
-                className={`h-9 w-9 rounded-full bg-gradient-to-b ${
-                  recruiterBrand[name as keyof typeof recruiterBrand]?.tone ?? "from-[#1f3b64] to-[#142843]"
-                } text-white text-xs tracking-wide font-bold inline-flex items-center justify-center`}
-                aria-hidden
-              >
-                {recruiterBrand[name as keyof typeof recruiterBrand]?.code ?? name.slice(0, 2).toUpperCase()}
+              <div className="relative h-10 w-28 flex items-center justify-center">
+                <Image
+                  src={recruiter.logo}
+                  alt={recruiter.name}
+                  width={110}
+                  height={40}
+                  className="max-h-9 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              <span className="text-[11px] font-semibold text-slate-muted mt-1 group-hover:text-navy">
+                {recruiter.name}
               </span>
-              {name}
             </div>
           ))}
         </div>
-      </div>
 
-      <div id="wall-of-fame" className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {toppers.map((student) => (
-          <article key={student.name} className="rounded-sm border border-slate/20 p-5 bg-white shadow-card">
-            <h3 className="font-heading text-xl text-navy">{student.name}</h3>
-            <p className="mt-2 text-sm text-slate">{student.role}</p>
-            <p className="mt-1 text-sm text-gold font-semibold">{student.company}</p>
-          </article>
-        ))}
+        {/* Placement Metrics & Top Placements Bar */}
+        <div className="mt-12 bg-navy-dark text-white p-8 sm:p-10 shadow-xl border border-white/10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+            {placementStats.map((stat, idx) => (
+              <div key={stat.label} className={idx !== 0 ? "pt-4 sm:pt-0 sm:pl-6" : ""}>
+                <p className="font-heading text-3xl sm:text-4xl font-extrabold text-gold">{stat.value}</p>
+                <p className="text-xs text-white/80 font-medium mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

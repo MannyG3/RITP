@@ -21,86 +21,108 @@ export default function DirectSecondYearAdmissionPage() {
 
   return (
     <SharedLayout>
-      <section className="bg-navy text-white">
+      <section className="bg-navy-deep text-white pb-32">
         <Breadcrumb
           items={[{ label: "Home", href: "/" }, { label: "Admissions", href: "/admissions" }, { label: "Direct Second Year" }]}
           tone="dark"
         />
-        <div className="mx-auto max-w-grid px-4 md:px-8 pb-14 pt-4 md:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Admissions</p>
-          <h1 className="mt-4 max-w-4xl font-heading text-4xl md:text-6xl tracking-tight leading-tight">{track.title}</h1>
-          <p className="mt-4 max-w-3xl text-white/80 leading-7">{track.shortDescription}</p>
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 pt-16 md:pt-24 grid lg:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24 items-end">
+          <div className="pb-4">
+            <p className="text-lg md:text-xl font-medium text-white/80 leading-relaxed">
+              Lateral entry for HSC Science, MCVC & ITI graduates.
+            </p>
+          </div>
+          <div>
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl tracking-tight text-white font-black leading-[1.02]">
+              Direct Second <br />
+              <span className="text-crimson">Year.</span>
+            </h1>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-grid px-4 md:px-8 py-10 md:py-14">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-            <h2 className="font-heading text-3xl text-navy">Overview</h2>
-            <div className="mt-4 space-y-3 text-slate leading-7">
+      <section className="mx-auto max-w-[1400px] px-4 md:px-8 py-32 md:py-48">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <article className="border border-black/5 bg-slate-50 p-10 md:p-14">
+            <h2 className="font-heading text-4xl font-black text-navy-deep mb-8">Overview</h2>
+            <div className="space-y-4 text-lg text-slate-muted font-medium leading-relaxed">
               {track.overview.map((item) => (
                 <p key={item}>{item}</p>
               ))}
             </div>
           </article>
 
-          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-            <h2 className="font-heading text-3xl text-navy">Eligibility</h2>
-            <ul className="mt-4 space-y-3 text-slate leading-7">
+          <article className="border border-black/5 bg-slate-50 p-10 md:p-14">
+            <h2 className="font-heading text-4xl font-black text-navy-deep mb-8">Eligibility</h2>
+            <ul className="space-y-4">
               {track.eligibility.map((item) => (
-                <li key={item}>• {item}</li>
+                <li key={item} className="flex items-start gap-4">
+                  <span className="text-crimson mt-1 text-xl font-bold">•</span>
+                  <p className="text-lg text-slate-muted font-medium leading-relaxed">{item}</p>
+                </li>
               ))}
             </ul>
           </article>
 
-          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-            <h2 className="font-heading text-3xl text-navy">Admission Process</h2>
-            <ol className="mt-4 space-y-3 text-slate leading-7">
+          <article className="border border-black/5 bg-slate-50 p-10 md:p-14">
+            <h2 className="font-heading text-4xl font-black text-navy-deep mb-8">Admission Process</h2>
+            <ol className="space-y-6">
               {track.process.map((item, index) => (
-                <li key={item}>{index + 1}. {item}</li>
+                <li key={item} className="flex items-start gap-4">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-navy-deep text-white text-sm font-bold mt-1">
+                    {index + 1}
+                  </span>
+                  <p className="text-lg text-slate-muted font-medium leading-relaxed">{item}</p>
+                </li>
               ))}
             </ol>
           </article>
 
-          <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-            <h2 className="font-heading text-3xl text-navy">Documents Required</h2>
-            <ul className="mt-4 space-y-3 text-slate leading-7">
+          <article className="border border-black/5 bg-slate-50 p-10 md:p-14">
+            <h2 className="font-heading text-4xl font-black text-navy-deep mb-8">Documents Required</h2>
+            <ul className="space-y-4">
               {track.documents.map((item) => (
-                <li key={item}>• {item}</li>
+                <li key={item} className="flex items-start gap-4">
+                  <span className="text-crimson mt-1 text-xl font-bold">•</span>
+                  <p className="text-lg text-slate-muted font-medium leading-relaxed">{item}</p>
+                </li>
               ))}
             </ul>
           </article>
         </div>
 
-        <article className="mt-6 rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-          <h2 className="font-heading text-3xl text-navy">Important Notes</h2>
-          <ul className="mt-4 space-y-3 text-slate leading-7">
+        <article className="mt-8 bg-slate-50 p-10 md:p-16 border border-black/5">
+          <h2 className="font-heading text-4xl font-black text-navy-deep mb-8">Important Notes</h2>
+          <ul className="space-y-4 mb-12">
             {track.importantNotes.map((item) => (
-              <li key={item}>• {item}</li>
+              <li key={item} className="flex items-start gap-4">
+                <span className="text-crimson mt-1 text-xl font-bold">•</span>
+                <p className="text-lg text-slate-muted font-medium leading-relaxed">{item}</p>
+              </li>
             ))}
           </ul>
 
-          <h3 className="mt-7 font-heading text-2xl text-navy">Official Reference Links</h3>
-          <ul className="mt-3 space-y-2 text-slate">
+          <h3 className="font-heading text-2xl font-black text-navy-deep mb-6">Official Reference Links</h3>
+          <ul className="space-y-3 mb-16">
             {track.sourceLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} target="_blank" rel="noreferrer" className="font-semibold text-navy hover:text-gold transition-colors">
+                <a href={link.href} target="_blank" rel="noreferrer" className="inline-block text-lg font-bold text-navy-deep hover:text-crimson transition-colors underline underline-offset-4">
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-4 pt-8 border-t border-black/10">
             <Link
               href="/admissions"
-              className="inline-flex h-11 items-center rounded-sm border border-gold px-5 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-navy"
+              className="inline-flex h-14 items-center justify-center bg-navy-deep px-8 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-crimson"
             >
               Back to Admissions
             </Link>
             <Link
               href="/admissions/first-year"
-              className="inline-flex h-11 items-center rounded-sm border border-slate/25 px-5 text-sm font-semibold text-navy transition-colors hover:border-navy"
+              className="inline-flex h-14 items-center justify-center border border-black/20 px-8 text-sm font-bold uppercase tracking-wider text-navy-deep transition-colors hover:bg-slate-100"
             >
               View First Year
             </Link>
