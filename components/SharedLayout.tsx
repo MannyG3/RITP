@@ -6,7 +6,9 @@ export function SharedLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar forceSolid />
-      <main className="min-h-screen bg-[#f7f8fb] pt-24">{children}</main>
+      <main className="overflow-x-hidden w-full max-w-full min-h-screen py-32 md:py-48">
+        {children}
+      </main>
       <Footer />
     </>
   );

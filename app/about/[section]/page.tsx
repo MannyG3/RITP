@@ -34,101 +34,97 @@ export default async function AboutSectionPage({ params }: { params: Promise<{ s
 
   return (
     <SharedLayout>
-      <section className="bg-navy text-white">
-        <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "About Institute", href: "/about" }, { label: item.title }]}
-          tone="dark"
-        />
-        <div className="mx-auto max-w-grid px-4 md:px-8 pb-14 pt-4 md:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">About Institute</p>
-          <h1 className="mt-4 max-w-4xl font-heading text-4xl md:text-6xl tracking-tight leading-tight">{item.title}</h1>
-          <p className="mt-5 max-w-3xl text-white/80 leading-7">{item.summary}</p>
+      {/* Editorial Split Hero */}
+      <section className="px-4 md:px-8 mb-24 md:mb-40">
+        <div className="mx-auto max-w-[1400px]">
+          <Breadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: item.title }]}
+            tone="light"
+          />
+          
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-24 items-end">
+            <div>
+              <h1 className="max-w-5xl font-heading text-[clamp(2.5rem,5vw,5rem)] tracking-tight leading-[1.05] text-navy-deep font-black">
+                {item.title}
+                <span 
+                  className="inline-block w-[100px] md:w-[160px] h-[50px] md:h-[70px] align-middle bg-cover bg-center mx-3 border border-black/10" 
+                  style={{backgroundImage: `url('https://picsum.photos/seed/${item.slug}about/800/400')`, filter: 'grayscale(100%) contrast(120%)'}}
+                ></span>
+              </h1>
+            </div>
+            <div className="pb-4">
+              <p className="text-lg md:text-xl text-slate-muted leading-relaxed font-medium">
+                {item.summary}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-grid px-4 md:px-8 py-10 md:py-14">
-        <article className="rounded-sm border border-slate/20 bg-white p-6 md:p-8 shadow-card">
-          {!isAboutInstitute && item.slug !== "principals-message" ? <h2 className="font-heading text-3xl text-navy">Section Details</h2> : null}
-
+      <section className="mx-auto max-w-[1000px] px-4 md:px-8 pb-32">
+        <article className="bg-white">
           {isAboutInstitute ? (
-            <div>
-              <div className="rounded-sm border border-slate/20 bg-[#f8fbff] p-6 md:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">{item.content[0]}</p>
-                <h2 className="mt-3 font-heading text-4xl text-navy">{item.content[1]}</h2>
-                <p className="mt-5 text-slate leading-8">{item.content[2]}</p>
+            <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 relative items-start">
+              {/* Pinned Left Column */}
+              <div className="lg:sticky lg:top-32 pb-8">
+                <h2 className="font-heading text-4xl md:text-5xl tracking-tight text-navy-deep font-bold leading-tight max-w-xl">{item.content[1]}</h2>
+                <p className="mt-8 text-lg md:text-xl text-slate-muted leading-relaxed font-medium">{item.content[2]}</p>
               </div>
 
-              <div className="mt-6 grid gap-5 md:grid-cols-2">
-                <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.content[3]}</p>
-                  <p className="mt-3 text-lg leading-8 text-navy font-semibold">{item.content[4]}</p>
+              {/* Scrolling Right Column with Stacking Cards */}
+              <div className="flex flex-col gap-8 pb-32">
+                <article className="sticky top-32 group border border-black/5 bg-slate-50 p-10 hover:bg-white hover:shadow-cardHover transition-all duration-500 overflow-hidden relative min-h-[300px]">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-crimson/5 -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-3xl font-bold tracking-tight text-navy-deep mb-6">{item.content[3]}</h3>
+                    <p className="text-lg leading-relaxed text-slate-muted font-medium">{item.content[4]}</p>
+                  </div>
                 </article>
-                <article className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.content[5]}</p>
-                  <ul className="mt-3 space-y-2 text-slate leading-7">
-                    {item.content.slice(6).map((missionPoint) => (
-                      <li key={missionPoint}>{missionPoint}</li>
-                    ))}
-                  </ul>
+                <article className="sticky top-40 group border border-black/5 bg-slate-50 p-10 hover:bg-white hover:shadow-cardHover transition-all duration-500 overflow-hidden relative min-h-[400px] mt-12 shadow-2xl">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-3xl font-bold tracking-tight text-navy-deep mb-8">{item.content[5]}</h3>
+                    <ul className="space-y-6 text-lg text-slate-muted font-medium">
+                      {item.content.slice(6).map((missionPoint, i) => (
+                        <li key={i} className="flex gap-5 items-start">
+                          <span className="text-gold font-bold text-xl mt-1">0{i + 1}</span>
+                          <span className="leading-relaxed">{missionPoint}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               </div>
             </div>
           ) : (
-            <>
+            <div className="max-w-3xl mx-auto">
               {item.image ? (
-                <div className="mt-5 mx-auto overflow-hidden rounded-sm border border-slate/20 bg-slate-50 p-2 max-w-sm">
-                  <Image src={item.image.src} alt={item.image.alt} width={532} height={690} className="h-auto w-full object-cover" priority />
+                <div className="mb-16 overflow-hidden bg-slate-100 aspect-[4/5] md:aspect-video w-full relative group">
+                  <Image src={item.image.src} alt={item.image.alt} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" priority />
                 </div>
               ) : null}
 
               {item.contact && item.image ? (
-                <div className="mt-4 mx-auto max-w-sm rounded-sm border border-slate/20 bg-[#f8fbff] p-5 text-center">
-                  <p className="font-heading text-2xl text-navy">{item.contact.name}</p>
-                  <p className="mt-1 text-sm font-semibold text-gold">{item.contact.designation}</p>
-                  <a href={`tel:${item.contact.phone}`} className="mt-3 block text-slate hover:text-navy">
-                    {item.contact.phone}
-                  </a>
-                  <a href={`mailto:${item.contact.email}`} className="mt-1 block text-slate hover:text-navy">
-                    {item.contact.email}
-                  </a>
+                <div className="mb-12 pl-6  ">
+                  <p className="font-heading text-3xl font-bold text-navy-deep">{item.contact.name}</p>
+                  <p className="mt-1 text-lg font-medium text-slate-muted">{item.contact.designation}</p>
                 </div>
               ) : null}
 
-              <div className="mt-4 space-y-4 text-slate leading-7">
-                {item.content.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+              <div className="space-y-8 text-lg md:text-xl text-slate-muted leading-relaxed font-medium">
+                {item.content.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
                 ))}
               </div>
 
               {item.contact && !item.image ? (
-                <div className="mt-8 rounded-sm border border-slate/20 bg-[#f8fbff] p-5">
-                  <p className="font-heading text-2xl text-navy">{item.contact.name}</p>
-                  <p className="mt-1 text-sm font-semibold text-gold">{item.contact.designation}</p>
-                  <a href={`tel:${item.contact.phone}`} className="mt-3 block text-slate hover:text-navy">
-                    {item.contact.phone}
-                  </a>
-                  <a href={`mailto:${item.contact.email}`} className="mt-1 block text-slate hover:text-navy">
-                    {item.contact.email}
-                  </a>
+                <div className="mt-16 pl-6  ">
+                  <p className="font-heading text-3xl font-bold text-navy-deep">{item.contact.name}</p>
+                  <p className="mt-1 text-lg font-medium text-slate-muted">{item.contact.designation}</p>
                 </div>
               ) : null}
-            </>
+            </div>
           )}
-
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link
-              href="/about"
-              className="inline-flex h-11 items-center rounded-sm border border-gold px-5 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-navy"
-            >
-              Back to About
-            </Link>
-            <Link
-              href="/"
-              className="inline-flex h-11 items-center rounded-sm border border-slate/25 px-5 text-sm font-semibold text-navy transition-colors hover:border-navy"
-            >
-              Back to Home
-            </Link>
-          </div>
         </article>
       </section>
     </SharedLayout>

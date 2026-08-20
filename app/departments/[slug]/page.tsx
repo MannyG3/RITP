@@ -40,23 +40,46 @@ export default async function DepartmentPage({ params }: { params: Promise<{ slu
 
   return (
     <SharedLayout>
-      <section className="bg-navy text-white">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Departments", href: "/departments/computer" },
-            { label: department.name }
-          ]}
-          tone="dark"
-        />
-        <div className="mx-auto max-w-grid px-4 md:px-8 pb-14 pt-4 md:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Department Profile</p>
-          <h1 className="mt-4 max-w-4xl font-heading text-4xl md:text-6xl tracking-tight leading-tight">{department.name}</h1>
-          <p className="mt-5 max-w-3xl text-white/80 leading-7">{department.heroTitle}</p>
+      {/* Editorial Split Hero */}
+      <section className="px-4 md:px-8 mb-32">
+        <div className="mx-auto max-w-[1400px]">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Departments", href: "/departments/computer" },
+              { label: department.name }
+            ]}
+            tone="light"
+          />
+          
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-end">
+            <div>
+              {/* Massive 2-line constrained H1 */}
+              <h1 className="max-w-5xl font-heading text-[clamp(2.5rem,5vw,5rem)] tracking-tight leading-[1.05] text-navy-deep font-black">
+                {department.name}
+                <span 
+                  className="inline-block w-[120px] md:w-[180px] h-[50px] md:h-[70px] align-middle bg-cover bg-center mx-3 border border-black/10" 
+                  style={{backgroundImage: `url('https://picsum.photos/seed/${department.slug}engine/800/400')`, filter: 'grayscale(100%) contrast(120%)'}}
+                ></span>
+              </h1>
+            </div>
+            <div className="pb-4">
+              <p className="text-lg md:text-xl text-slate-muted leading-relaxed font-medium">
+                {department.heroTitle}
+              </p>
+              <div className="mt-8 flex gap-4">
+                <a href="#explore" className="inline-flex h-14 items-center justify-center bg-navy-deep px-8 text-sm font-bold text-white transition-transform hover:scale-105">
+                  Explore Programme
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <DepartmentTabs department={department} />
+      <div id="explore">
+        <DepartmentTabs department={department} />
+      </div>
     </SharedLayout>
   );
 }

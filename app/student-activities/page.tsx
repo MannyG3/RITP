@@ -16,27 +16,44 @@ export const dynamic = "force-static";
 export default function StudentActivitiesPage() {
   return (
     <SharedLayout>
-      <section className="bg-navy text-white">
+      <section className="bg-navy-deep text-white pb-32">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Student Activities" }]} tone="dark" />
-        <div className="mx-auto max-w-grid px-4 md:px-8 pb-14 pt-4 md:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Student Activities</p>
-          <h1 className="mt-4 max-w-4xl font-heading text-4xl md:text-6xl tracking-tight leading-tight">Student Activity Section</h1>
-          <p className="mt-5 max-w-3xl text-white/80 leading-7">
-            Explore institutional student activity modules including forms, innovation events, and orientation initiatives.
-          </p>
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 pt-16 md:pt-24 grid lg:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24 items-end">
+          <div className="pl-6 md:pl-8 ">
+            <p className="text-lg md:text-xl font-medium text-white/80 leading-relaxed">
+              Explore innovation events, clubs, and orientation initiatives.
+            </p>
+          </div>
+          <div>
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl tracking-tight text-white font-black leading-[1.02]">
+              Beyond the <br />
+              <span className="text-crimson">Classroom.</span>
+            </h1>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-grid px-4 md:px-8 py-10 md:py-14">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {studentActivityPages.map((item) => (
+      <section className="mx-auto max-w-[1400px] px-4 md:px-8 py-32 md:py-48">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {studentActivityPages.map((item, idx) => (
             <Link
               key={item.slug}
               href={`/student-activities/${item.slug}`}
-              className="rounded-sm border border-slate/20 bg-white p-5 shadow-card transition-colors hover:border-gold"
+              className="group relative bg-slate-50 p-10 hover:bg-white hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 overflow-hidden border border-transparent hover:border-black/5 flex flex-col min-h-[320px]"
             >
-              <h2 className="font-heading text-2xl text-navy">{item.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate">{item.description}</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-navy-deep/5 rounded-bl-[4rem] -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
+              
+              <div className="relative z-10 flex-grow">
+                <span className="font-mono text-xl font-black text-navy-deep/20 group-hover:text-gold transition-colors block mb-6">
+                  0{idx + 1}
+                </span>
+                <h2 className="font-heading text-3xl font-bold text-navy-deep tracking-tight mb-4">{item.title}</h2>
+                <p className="text-lg text-slate-muted leading-relaxed font-medium">{item.description}</p>
+              </div>
+
+              <div className="relative z-10 mt-8 pt-6 border-t border-black/10 flex items-center justify-between">
+                <span className="text-sm font-bold uppercase tracking-wider text-navy-deep group-hover:text-crimson transition-colors">View Details</span>
+              </div>
             </Link>
           ))}
         </div>

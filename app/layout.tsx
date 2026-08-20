@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", style: ["normal", "italic"] });
 
 const SITE_URL = "https://ritppune.com";
 
@@ -154,12 +155,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${roboto.variable} font-sans bg-white`}>{children}</body>
+      <body className={`${jakarta.variable} ${outfit.variable} ${playfair.variable} font-sans bg-background text-slate antialiased selection:bg-navy selection:text-white`}>{children}</body>
     </html>
   );
 }

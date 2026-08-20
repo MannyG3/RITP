@@ -13,11 +13,20 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <SharedLayout>
-      <section className="bg-navy text-white">
+      <section className="bg-navy-deep text-white pb-32">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Institute" }]} tone="dark" />
-        <div className="mx-auto max-w-grid px-4 md:px-8 pb-14 pt-4 md:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">About Institute</p>
-          <h1 className="mt-4 font-heading text-4xl md:text-6xl tracking-tight">Institutional vision, governance, and campus identity.</h1>
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 pt-16 md:pt-24 grid lg:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24 items-end">
+          <div className="pb-4">
+            <p className="text-lg md:text-xl font-medium text-white/80 leading-relaxed">
+              Institutional vision, governance, and campus identity.
+            </p>
+          </div>
+          <div>
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl tracking-tight text-white font-black leading-[1.02]">
+              Shaping Future <br />
+              <span className="text-crimson">Innovators.</span>
+            </h1>
+          </div>
         </div>
       </section>
       <InstitutionalSections />
